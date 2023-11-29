@@ -2,22 +2,24 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #3498db; /* Fundo azul */
+    color: white; /* Letras brancas */
     text-align: center;
 }
 
 header {
-    background-color: #333;
+    background-color: #2980b9; /* Azul um pouco mais escuro para o cabeçalho */
     color: white;
     padding: 1em;
 }
 
 main {
     margin: 2em;
+    padding: 1em; /* Adicionando espaço interno para melhorar a leitura */
 }
 
 footer {
-    background-color: #333;
+    background-color: #2980b9; /* Azul um pouco mais escuro para o rodapé */
     color: white;
     padding: 1em;
 }
