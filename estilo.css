@@ -11,11 +11,26 @@ header {
     background-color: #2980b9; /* Azul um pouco mais escuro para o cabeçalho */
     color: white;
     padding: 1em;
+    display: flex; /* Utilizando o flexbox para alinhar a imagem e o título lado a lado */
+    align-items: center; /* Centralizando verticalmente os itens */
+}
+
+header img {
+    margin-right: 10px; /* Adicionando margem à direita da imagem para separar do texto */
 }
 
 main {
     margin: 2em;
     padding: 1em; /* Adicionando espaço interno para melhorar a leitura */
+}
+
+.main-content {
+    text-align: center;
+}
+
+.main-content img {
+    display: block; /* Faz a imagem ocupar uma linha separada */
+    margin: 0 auto 10px; /* Centraliza a imagem e adiciona margem na parte inferior */
 }
 
 footer {
