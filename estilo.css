@@ -38,3 +38,16 @@ footer {
     color: white;
     padding: 1em;
 }
+
+/* Media Query para telas menores, como dispositivos móveis */
+@media screen and (max-width: 600px) {
+    header {
+        flex-direction: column; /* Altera a direção do flexbox para coluna */
+        text-align: center; /* Centraliza o texto na coluna */
+    }
+
+    header img {
+        margin-right: 0; /* Remove a margem à direita da imagem */
+        margin-bottom: 10px; /* Adiciona margem inferior para separar do texto */
+    }
+}
