@@ -3,11 +3,11 @@
 header('Content-Type: application/json');
 
 // Caminho para o arquivo contendo tokens
-$tokenFilePath = dirname(__FILE__) . '/../../config/webhook-token.php';
+$tokenFilePath = dirname(__FILE__) . '../../config/webhook-token.php';
 
 /*
 // Caminho para o arquivo de log
-$logFilePath = dirname(__FILE__) . '/../../config/webhook.log';
+$logFilePath = dirname(__FILE__) . '../../config/webhook.log';
 
 // Função para gravar logs
 function logToFile($message) {
