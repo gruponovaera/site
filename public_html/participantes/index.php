@@ -45,7 +45,7 @@
         $dataHoraFim = $dataReuniao . ' ' . $horaFim;
 
         // Consulta SQL para buscar os participantes dentro do intervalo de tempo especificado
-        $sql = "SELECT user_name FROM novaera_participantes WHERE join_time BETWEEN ? AND ? ORDER BY join_time ASC";
+        $sql = "SELECT email, user_name FROM novaera_participantes WHERE join_time BETWEEN ? AND ? ORDER BY join_time ASC";
         $stmt = $mysqli->prepare($sql);
 
         if ($stmt) {
@@ -59,15 +59,33 @@
             // Cria uma lista de participantes começando com o PS
             $participantes = ["1- PS"];
 
-            // Itera sobre os resultados e adiciona os participantes na lista
+            // Inicializa arrays para controle de duplicatas por e-mail e por nome
+            $emailsUsados = [];
+            $nomesUsados = [];
+
+            // Itera sobre os resultados e adiciona os participantes na lista, evitando duplicatas
             $contador = 2;
             while ($row = $result->fetch_assoc()) {
-                $participantes[] = $contador . "- " . $row['user_name'];
-                $contador++;
+                $email = $row['email'];
+                $userName = $row['user_name'];
+
+                // Primeiro filtro: se o e-mail não for nulo e ainda não estiver na lista, adiciona o participante
+                if (!empty($email) && !in_array($email, $emailsUsados)) {
+                    $participantes[] = $contador . "- " . $userName;
+                    $emailsUsados[] = $email;  // Marca o e-mail como usado
+                    $contador++;
+                }
+                // Segundo filtro: se o e-mail for nulo, verifica se o nome ainda não foi adicionado
+                elseif (empty($email) && !in_array($userName, $nomesUsados)) {
+                    $participantes[] = $contador . "- " . $userName;
+                    $nomesUsados[] = $userName;  // Marca o nome como usado
+                    $contador++;
+                }
+                // Se o e-mail for duplicado ou o nome for duplicado (sem e-mail), ignora a entrada
             }
 
             // Exibe a lista de participantes
-            echo "<h2>Lista de Presença:</h2>";
+            echo "<h2>Lista de Presenças:</h2>";
             echo "<ul>";
             foreach ($participantes as $participante) {
                 echo "<li>$participante</li>";
