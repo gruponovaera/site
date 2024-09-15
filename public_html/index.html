@@ -4,40 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Link para o arquivo CSS externo -->
-    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="estilo.css"> 
     <title>Site do Grupo Nova Era OnLine</title>
 </head>
 <body>
     <header>
-        <div class="logo-menu">
-            <!-- Adicionando a imagem antes do título -->
-            <img src="img/logo-na.png" alt="Logo NA" aria-label="Logo Narcóticos Anônimos">
-
-            <!-- Menu de navegação ao lado da logo -->
-            <nav>
-                <ul class="menu">
-                    <li><a href="https://wa.me/5571982131953" target="_blank" aria-label="Linha de ajuda via WhatsApp">Linha de Ajuda</a></li>
-                    <li><a href="https://bit.ly/NE_relatorio" target="_blank" aria-label="Acessar relatório de presença">Relatório</a></li>
-                </ul>
-            </nav>
-        </div>
+        <!-- Adicionando a imagem antes do título com srcset para imagens responsivas -->
+        <img srcset="img/logo-na-pequeno.png 320w, img/logo-na-medio.png 640w, img/logo-na-grande.png 1024w" 
+             sizes="(max-width: 320px) 280px, (max-width: 640px) 440px, 800px"
+             src="img/logo-na-grande.png" 
+             alt="Logo NA">
         <h1>Grupo Nova Era OnLine de Narcóticos Anônimos</h1>
     </header>
 
     <main>
-        <!-- Informações sobre as reuniões virtuais -->
-        <div class="reunioes-virtuais">
-            <h2>Reuniões Virtuais</h2>
-            <p>Segunda a Sexta - 18h às 20h</p>
-            <p>Clique para entrar na Reunião:</p>
-            <a href="https://us06web.zoom.us/j/88614819314?pwd=roDKk2CJiYbjj87c6ZYEsW8bRsyoty.1" target="_blank" aria-label="Entrar na reunião via Zoom">Entrar na Reunião</a>
-            <p><strong>NOVO ID:</strong> 886 1481 9314</p>
-            <p><strong>NOVA Senha:</strong> 000000</p>
-        </div>
-
-        <!-- Adicionando a imagem de construção e o texto em um div para centralizar -->
+        <!-- Adicionando a imagem de construção com srcset para imagens responsivas e o texto em um div para centralizar -->
         <div class="construcao">
-            <img src="img/construir.png" alt="Site em Construção" aria-label="Site em construção">
+            <img srcset="img/construir-pequeno.png 320w, img/construir-medio.png 640w, img/construir-grande.png 1024w" 
+                 sizes="(max-width: 320px) 280px, (max-width: 640px) 440px, 800px"
+                 src="img/construir-grande.png" 
+                 alt="Em Construção">
             <p>Site em Construção</p>
         </div>
     </main>
