@@ -1,83 +1,113 @@
-/* Estilos para centralizar logo, cabeçalho e rodapé */
-header, footer {
-    text-align: center;
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
 }
 
+header, footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    background-color: #2980b9;
+    color: white;
+    padding: 20px 0;
+}
+
+/* Estilos para o cabeçalho */
 .header-content {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
-.header-content img {
+.logo-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.logo-menu img {
     max-width: 150px;
 }
 
-.header-content h1 {
+header h1 {
     font-size: 1.8em;
     margin: 10px 0;
 }
 
-/* Estilos para o formulário */
-.form-container {
-    background-color: #2980b9; /* Mesma cor de fundo do cabeçalho */
-    padding: 20px;
-    margin: 20px auto;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 600px;
-    color: white;
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
 }
 
-.form-container h2 {
+.menu li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.menu li a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para o conteúdo principal */
+.reunioes-virtuais {
+    background-color: #3498db;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.reunioes-virtuais h2 {
     margin-bottom: 20px;
 }
 
-.consulta-form label,
-.consulta-form input,
-.consulta-form button {
-    display: block;
-    width: 100%;
-    margin: 10px 0;
-}
-
-.consulta-form input,
-.consulta-form button {
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-}
-
-.consulta-form button {
-    background-color: #3498db; /* Cor de botão */
+.reunioes-virtuais a {
     color: white;
-    cursor: pointer;
     font-weight: bold;
-}
-
-.consulta-form button:hover {
-    background-color: #1f78b4; /* Cor de hover do botão */
-}
-
-/* Estilos para a lista de participantes */
-.lista-participantes {
-    background-color: #2980b9; /* Mesma cor de fundo do cabeçalho */
-    padding: 20px;
-    margin: 20px auto;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 600px;
-    color: white;
-}
-
-.lista-participantes ul {
-    list-style: none;
-    padding: 0;
-}
-
-.lista-participantes li {
-    background-color: #3498db; /* Fundo de cada item */
-    margin: 5px 0;
-    padding: 10px;
+    text-decoration: none;
+    background-color: #2c3e50;
+    padding: 10px 20px;
     border-radius: 5px;
+    display: inline-block;
+}
+
+.reunioes-virtuais a:hover {
+    background-color: #1f78b4;
+}
+
+.construcao {
+    margin: 20px auto;
+    text-align: center;
+}
+
+.construcao img {
+    max-width: 300px;
+}
+
+.construcao p {
+    font-size: 1.2em;
+    color: #2980b9;
+}
+
+/* Estilos para o rodapé */
+footer {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: white;
+    background-color: #2980b9;
 }
