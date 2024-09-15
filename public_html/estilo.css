@@ -1,3 +1,23 @@
+/* Estilos para centralizar logo, cabeçalho e rodapé */
+header, footer {
+    text-align: center;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-content img {
+    max-width: 150px;
+}
+
+.header-content h1 {
+    font-size: 1.8em;
+    margin: 10px 0;
+}
+
 /* Estilos para o formulário */
 .form-container {
     background-color: #2980b9; /* Mesma cor de fundo do cabeçalho */

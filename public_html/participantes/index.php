@@ -10,8 +10,10 @@
 <body>
     <header>
         <!-- Adicionando a imagem antes do título -->
-        <img src="../img/logo-na.png" alt="Logo NA">
-        <h1>Grupo Nova Era OnLine de Narcóticos Anônimos</h1>
+        <div class="header-content">
+            <img src="../img/logo-na.png" alt="Logo NA">
+            <h1>Grupo Nova Era OnLine de Narcóticos Anônimos</h1>
+        </div>
     </header>
 
     <main>
@@ -71,6 +73,7 @@
                     if (!empty($email) && !in_array($email, $emailsUsados)) {
                         $participantes[] = $contador . "- " . $userName;
                         $emailsUsados[] = $email;  // Marca o e-mail como usado
+                        $nomesUsados[] = $userName;  // Marca o nome como usado
                         $contador++;
                     }
                     // Segundo filtro: se o e-mail for nulo, verifica se o nome ainda não foi adicionado
