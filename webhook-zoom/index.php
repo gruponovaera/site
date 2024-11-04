@@ -1,6 +1,6 @@
 <?php
 // Caminho para o arquivo de configuração tokens e conexão com o banco de dados
-include '../../config/conexao.php';
+include '../config/conexao.php';
 
 try {
     // Lê o corpo da requisição

@@ -36,7 +36,7 @@
         // Verifica se o formulário foi submetido
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Inclui o arquivo de conexão com o banco de dados
-            include '../../config/conexao.php';
+            include '../config/conexao.php';
 
             // Conexão com o banco de dados
             $mysqli = new mysqli($dbConfig['host'], $dbConfig['user'], $dbConfig['password'], $dbConfig['dbname'], $dbConfig['port']);
