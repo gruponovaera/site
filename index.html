@@ -9,21 +9,19 @@
 </head>
 <body>
     <header>
-        <!-- Adicionando a imagem antes do título com srcset para imagens responsivas -->
-        <img srcset="img/logo-na-pequeno.png 320w, img/logo-na-medio.png 640w, img/logo-na-grande.png 1024w" 
-             sizes="(max-width: 320px) 280px, (max-width: 640px) 440px, 800px"
-             src="img/logo-na-grande.png" 
-             alt="Logo NA">
+        <!-- Usando a única imagem disponível para o logo -->
+        <img src="img/logo-na.png" 
+             alt="Logo NA" 
+             style="width: 100%; max-width: 800px;">
         <h1>Grupo Nova Era OnLine de Narcóticos Anônimos</h1>
     </header>
 
     <main>
-        <!-- Adicionando a imagem de construção com srcset para imagens responsivas e o texto em um div para centralizar -->
+        <!-- Exibindo a imagem de construção única -->
         <div class="construcao">
-            <img srcset="img/construir-pequeno.png 320w, img/construir-medio.png 640w, img/construir-grande.png 1024w" 
-                 sizes="(max-width: 320px) 280px, (max-width: 640px) 440px, 800px"
-                 src="img/construir-grande.png" 
-                 alt="Em Construção">
+            <img src="img/construir.png" 
+                 alt="Em Construção"
+                 style="width: 100%; max-width: 800px;">
             <p>Site em Construção</p>
         </div>
     </main>
