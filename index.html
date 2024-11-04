@@ -2,11 +2,34 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; URL='public_html/index.html'">
-    <title>Redirecionando...</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link para o arquivo CSS externo -->
+    <link rel="stylesheet" href="estilo.css"> 
+    <title>Site do Grupo Nova Era OnLine</title>
 </head>
 <body>
-    <!-- Se o redirecionamento automático não funcionar, o link será exibido para clicar manualmente -->
-    <p>Se você não for redirecionado automaticamente, clique <a href="public_html/index.html">aqui</a>.</p>
+    <header>
+        <!-- Adicionando a imagem antes do título com srcset para imagens responsivas -->
+        <img srcset="img/logo-na-pequeno.png 320w, img/logo-na-medio.png 640w, img/logo-na-grande.png 1024w" 
+             sizes="(max-width: 320px) 280px, (max-width: 640px) 440px, 800px"
+             src="img/logo-na-grande.png" 
+             alt="Logo NA">
+        <h1>Grupo Nova Era OnLine de Narcóticos Anônimos</h1>
+    </header>
+
+    <main>
+        <!-- Adicionando a imagem de construção com srcset para imagens responsivas e o texto em um div para centralizar -->
+        <div class="construcao">
+            <img srcset="img/construir-pequeno.png 320w, img/construir-medio.png 640w, img/construir-grande.png 1024w" 
+                 sizes="(max-width: 320px) 280px, (max-width: 640px) 440px, 800px"
+                 src="img/construir-grande.png" 
+                 alt="Em Construção">
+            <p>Site em Construção</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2021-2024 Grupo Nova Era OnLine de Narcóticos Anônimos</p>
+    </footer>
 </body>
 </html>
