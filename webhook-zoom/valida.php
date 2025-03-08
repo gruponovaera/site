@@ -1,13 +1,25 @@
 <?php
-// Defina o cabeçalho Content-Type como JSON
+/**
+ * Script de validação do webhook do Zoom
+ * 
+ * Este script é responsável por validar as solicitações de webhook do Zoom.
+ * Quando o Zoom configura um novo webhook, ele envia uma solicitação de validação
+ * que deve ser respondida com um token criptografado específico.
+ */
+
+// Define o cabeçalho Content-Type como JSON para todas as respostas
 header('Content-Type: application/json');
 
-// Caminho para o arquivo contendo tokens
-$tokenFilePath = dirname(__FILE__) . '../config/webhook-token.php';
+// Caminho para o arquivo contendo tokens de segurança
+// Corrigido o caminho que estava incorreto (faltava uma barra)
+$tokenFilePath = dirname(__FILE__) . '/../config/webhook-token.php';
 
+/**
+ * Código de log comentado - pode ser descomentado para depuração
+ */
 /*
 // Caminho para o arquivo de log
-$logFilePath = dirname(__FILE__) . '../config/webhook.log';
+$logFilePath = dirname(__FILE__) . '/../config/webhook.log';
 
 // Função para gravar logs
 function logToFile($message) {
@@ -23,7 +35,13 @@ function logToFile($message) {
 }
 */
 
-// Verifique se o arquivo de tokens existe
+// Função temporária de log (não faz nada, apenas para evitar erros)
+function logToFile($message) {
+    // Função vazia para substituir as chamadas de log comentadas
+    // Remova esta função se desativar os logs permanentemente
+}
+
+// Verifica se o arquivo de tokens existe
 if (!file_exists($tokenFilePath)) {
     $errorMessage = 'Token file not found';
     logToFile($errorMessage);
@@ -32,10 +50,10 @@ if (!file_exists($tokenFilePath)) {
     exit;
 }
 
-// Inclua o arquivo de tokens
+// Inclui o arquivo de tokens
 $tokens = include($tokenFilePath);
 
-// Verifique se os tokens foram carregados corretamente
+// Verifica se os tokens foram carregados corretamente
 if (!isset($tokens['webhookSecret']) || !isset($tokens['verificationToken'])) {
     $errorMessage = 'Tokens are missing';
     logToFile($errorMessage);
@@ -44,11 +62,11 @@ if (!isset($tokens['webhookSecret']) || !isset($tokens['verificationToken'])) {
     exit;
 }
 
-// Defina os tokens
+// Define os tokens a partir do arquivo carregado
 $webhookSecret = $tokens['webhookSecret'];
 $verificationToken = $tokens['verificationToken'];
 
-// Lê o corpo da solicitação JSON
+// Lê o corpo da solicitação JSON enviada pelo Zoom
 $body = file_get_contents('php://input');
 logToFile("Received body: $body");
 
@@ -64,26 +82,27 @@ if (json_last_error() !== JSON_ERROR_NONE) {
     exit;
 }
 
-// Verifica se o evento é a validação da URL
+// Verifica se o evento é a validação da URL do webhook
 if (isset($data['event']) && $data['event'] === 'endpoint.url_validation') {
-    // Captura o plainToken
+    // Captura o plainToken enviado pelo Zoom
     $plainToken = $data['payload']['plainToken'];
 
-    // Cria o hash HMAC SHA-256 do plainToken
+    // Cria o hash HMAC SHA-256 do plainToken usando o webhookSecret como chave
     $encryptedToken = hash_hmac('sha256', $plainToken, $webhookSecret);
 
-    // Cria a resposta JSON
+    // Cria a resposta JSON no formato esperado pelo Zoom
     $response = [
         'plainToken' => $plainToken,
         'encryptedToken' => $encryptedToken
     ];
 
-    // Retorna a resposta de sucesso
+    // Retorna a resposta de sucesso com código HTTP 200
     logToFile("Response: " . json_encode($response));
     echo json_encode($response);
     http_response_code(200);
     exit;
 } else {
+    // Se não for um evento de validação, retorna erro
     $errorMessage = 'Invalid event: ' . (isset($data['event']) ? $data['event'] : 'none');
     logToFile($errorMessage);
     http_response_code(400);
