@@ -1,0 +1,57 @@
+# Base Layout Global
+
+## Objetivo
+- Manter a base visual e estrutural do site (index e futuras paginas).
+
+## Escopo
+### Inclui
+- Navegacao principal com menu desktop e mobile
+- Estrutura de secoes controladas por JS (`page-section`)
+- Tailwind CSS via CDN + CSS inline complementar
+- Fundo com gradiente e efeitos
+- Footer institucional
+- Metas basicas e fontes externas
+
+### Nao inclui
+- Conteudo detalhado de cada secao
+- Admin/participantes em PHP
+
+## Estrutura atual
+- `index.html` (single-page com navegacao interna)
+- `estilo.css` (participantes/admin)
+- `img/` (assets locais)
+
+## Tarefas
+### Layout e Navegacao
+- [ ] Definir padrao de layout para secoes (titulos, espacamento, largura)
+- [ ] Ajustar navegacao para acessibilidade (aria-label, aria-expanded)
+- [ ] Garantir fallback quando JS estiver desativado
+
+### Estilos
+- [ ] Decidir entre Tailwind CDN vs build local
+- [ ] Consolidar estilos inline em arquivo proprio (se necessario)
+- [ ] Padronizar cores e tipografia (tokens)
+
+### Assets
+- [ ] Substituir imagens externas por assets locais em `img/`
+- [ ] Definir favicon e icones
+
+### Performance e SEO
+- [ ] Reduzir dependencias externas
+- [ ] Revisar metas e title por secao
+
+### Acessibilidade
+- [ ] Ajustar contraste e foco visivel
+- [ ] Padronizar textos alternativos
+
+## Criterios de Aceitacao (DoD)
+- Layout base consistente entre secoes
+- Navegacao funcional no desktop e mobile
+- Sem dependencia critica sem fallback
+
+## Riscos e Decisoes
+- Manter Tailwind via CDN simplifica, mas aumenta dependencia externa
+- JS controla visibilidade das secoes; precisa de fallback
+
+## Implementado
+- [x] Estrutura base no `index.html`
