@@ -1,0 +1,11 @@
+# Tech Stack & Regras Tecnicas
+- **Linguagem:** PHP 7.4+ (procedural, `mysqli`) para `participantes/` e `webhook-zoom/`
+- **Pagina institucional:** HTML5 em `index.html` com Tailwind CSS via CDN
+- **Estilos adicionais:** CSS inline no `index.html` + `estilo.css` para `participantes/`
+- **JavaScript:** Vanilla JS inline no `index.html` (navegacao e menu mobile)
+- **Fontes:** Google Fonts (Inter)
+- **Imagens:** `/img` para assets locais; uso atual de URLs externas (logo NA e background)
+- **Database:** MySQL 5.7+ (tabela `novaera_participantes`)
+- **Integracoes:** Webhook Zoom e relatorios no Looker Studio
+- **Ambiente:** Servidor LAMP/LEMP (Apache ou Nginx + PHP)
+- **Codificacao:** UTF-8 em todos os arquivos do repositorio
