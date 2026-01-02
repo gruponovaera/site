@@ -1,33 +1,295 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Link para o arquivo CSS externo -->
-    <link rel="stylesheet" href="estilo.css"> 
-    <title>Site do Grupo Nova Era OnLine</title>
-</head>
-<body>
-    <header>
-        <!-- Usando a única imagem disponível para o logo -->
-        <img src="img/logo-na.png" 
-             alt="Logo NA" 
-             style="width: 100%; max-width: 800px;">
-        <h1>Grupo Nova Era OnLine de Narcóticos Anônimos</h1>
-    </header>
+  <head>
+    <!-- Metadados basicos da pagina -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grupo Nova Era OnLine | Narcóticos Anônimos</title>
 
-    <main>
-        <!-- Exibindo a imagem de construção única -->
-        <div class="construcao">
-            <img src="img/construir.png" 
-                 alt="Em Construção"
-                 style="width: 100%; max-width: 800px;">
-            <p>Site em Construção</p>
+    <!-- Metadados de SEO -->
+    <meta name="description" content="Grupo Nova Era OnLine de Narcóticos Anônimos. Recuperação, apoio e anonimato para problemas com drogas. Reuniões virtuais diárias." />
+    <meta name="keywords" content="drogas, problemas com drogas, narcóticos anônimos, anonimato, recuperação, vício, tratamento, grupo online, NA, só por hoje" />
+    <meta name="author" content="Grupo Nova Era OnLine" />
+    <meta name="theme-color" content="#1e3a8a" />
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Configuracao do Tailwind usada neste layout
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            animation: {
+              'fade-in': 'fadeIn 1s ease-out',
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+
+    <!-- Fontes externas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #020617;
+      }
+      /* Barra de rolagem personalizada */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0f172a;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #1e40af;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #3b82f6;
+      }
+      /* Controle de visibilidade das secoes */
+      .page-section {
+        display: none;
+        animation: fadeIn 0.5s ease-out;
+      }
+      .page-section.active {
+        display: block;
+      }
+      .nav-btn.active {
+        color: #facc15; /* yellow-400 */
+        background-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 0 10px rgba(255,255,255,0.1);
+      }
+    </style>
+</head>
+  <body class="min-h-screen text-slate-200 selection:bg-yellow-400 selection:text-black flex flex-col">
+
+    <!-- Efeitos de fundo -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-950 via-slate-900 to-black"></div>
+        <div class="absolute top-0 left-0 w-full h-full bg-[url('https://picsum.photos/1920/1080?blur=10')] opacity-10 bg-cover mix-blend-overlay"></div>
+        <div class="absolute inset-0 bg-[linear-gradient(rgba(18,24,27,0)_1px,transparent_1px),linear-gradient(90deg,rgba(18,24,27,0)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)] opacity-20"></div>
+        <div class="absolute top-[-10%] left-[-10%] w-[40vw] h-[40vw] rounded-full bg-blue-600/20 blur-[100px] animate-pulse-slow"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-indigo-600/20 blur-[100px] animate-pulse-slow delay-1000"></div>
+    </div>
+
+    <!-- Navegacao principal -->
+    <nav class="sticky top-0 z-40 bg-slate-950/70 backdrop-blur-md border-b border-white/5 shadow-lg relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <!-- Area do logo -->
+          <div class="flex items-center gap-3 cursor-pointer" onclick="navigateTo('home')">
+            <div class="w-12 h-12 flex items-center justify-center bg-white/10 rounded-full p-1 border border-blue-500/30">
+                <!-- Usa URL SVG direta para melhor compatibilidade -->
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/Narcotics_Anonymous_logo.svg" alt="NA Logo" class="w-full h-full object-contain filter drop-shadow-[0_0_5px_rgba(59,130,246,0.6)]" />
+            </div>
+            <div class="flex flex-col">
+                <span class="text-white font-bold text-lg md:text-xl tracking-tight leading-none hover:text-blue-300 transition">
+                  GRUPO NOVA ERA
+                </span>
+                <span class="text-yellow-400 font-light tracking-[0.2em] text-sm">ONLINE</span>
+            </div>
+          </div>
+
+          <!-- Menu desktop -->
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-4">
+              <button onclick="navigateTo('home')" class="nav-btn px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 text-gray-300 hover:text-white hover:bg-white/5" data-target="home">Início</button>
+              <button onclick="navigateTo('info')" class="nav-btn px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 text-gray-300 hover:text-white hover:bg-white/5" data-target="info">O que é NA?</button>
+              <button onclick="navigateTo('history')" class="nav-btn px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 text-gray-300 hover:text-white hover:bg-white/5" data-target="history">História do Grupo</button>
+              <button onclick="navigateTo('reports')" class="nav-btn px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 text-gray-300 hover:text-white hover:bg-white/5" data-target="reports">Relatórios</button>
+            </div>
+          </div>
+
+          <!-- Botao do menu mobile -->
+          <div class="-mr-2 flex md:hidden">
+            <button onclick="toggleMobileMenu()" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
+              <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
         </div>
+      </div>
+
+      <!-- Menu mobile -->
+      <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-white/10 absolute w-full">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <button onclick="navigateTo('home')" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">Início</button>
+          <button onclick="navigateTo('info')" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">O que é NA?</button>
+          <button onclick="navigateTo('history')" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">História do Grupo</button>
+          <button onclick="navigateTo('reports')" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">Relatórios</button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Conteudo principal -->
+    <main class="flex-grow flex flex-col pt-10 pb-20 relative z-10 w-full max-w-7xl mx-auto">
+
+        <!-- Secao: Inicio -->
+        <section id="home" class="page-section active flex justify-center items-center w-full px-4">
+            <div class="w-full max-w-4xl mx-auto">
+                <div class="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-3xl p-8 md:p-12 shadow-[0_0_50px_rgba(30,58,138,0.4)] w-full text-center relative overflow-hidden group hover:border-blue-400/30 transition-all duration-500">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-50"></div>
+
+                    <h1 class="text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-blue-200 mb-2 tracking-tight drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] uppercase">
+                      Grupo Nova Era <span class="text-yellow-400 inline-block transform -skew-x-12">OnLine</span>
+                    </h1>
+                    <h2 class="text-xl md:text-2xl text-blue-200 mb-8 font-light tracking-widest">
+                      DE NARCÓTICOS ANÔNIMOS
+                    </h2>
+
+                    <div class="space-y-6 mb-10 text-left md:text-center bg-black/20 p-6 rounded-2xl border border-white/5 mt-8">
+                      <div class="flex flex-col md:flex-row justify-center items-center gap-4">
+                        <span class="text-3xl">🗓️</span>
+                        <div class="flex flex-col">
+                          <h3 class="text-yellow-400 font-bold text-lg mb-1">Reuniões Virtuais</h3>
+                          <p class="text-white text-lg">
+                            <span class="text-blue-300 font-semibold">Segunda a Sexta:</span> <span class="bg-blue-900/50 px-2 py-0.5 rounded text-white font-mono">18h às 20h</span>
+                          </p>
+                          <p class="text-white text-lg mt-1">
+                             <span class="text-blue-300 font-semibold">Sábado e Domingo:</span> <span class="bg-blue-900/50 px-2 py-0.5 rounded text-white font-mono">22h às 0h</span>
+                          </p>
+                        </div>
+                      </div>
+
+                      <div class="flex flex-col md:flex-row justify-center gap-8 mt-6 border-t border-white/10 pt-6">
+                         <div class="text-center">
+                            <p class="text-blue-400 text-sm uppercase tracking-wider font-bold">ID da Reunião</p>
+                            <p class="text-2xl text-white font-mono tracking-widest select-all">886 1481 9314</p>
+                         </div>
+                         <div class="text-center">
+                            <p class="text-blue-400 text-sm uppercase tracking-wider font-bold">Senha</p>
+                            <p class="text-2xl text-white font-mono tracking-widest select-all">000000</p>
+                         </div>
+                      </div>
+                    </div>
+
+                    <div class="flex justify-center mt-8">
+                      <a href="https://us06web.zoom.us/j/88614819314?pwd=roDKk2CJiYbjj87c6ZYEsW8bRsyoty.1" target="_blank" rel="noreferrer" class="w-full md:w-auto">
+                        <button class="w-full md:w-auto px-8 py-4 bg-yellow-500/90 hover:bg-yellow-400 text-slate-900 font-bold text-lg rounded-lg shadow-[0_0_30px_rgba(234,179,8,0.3)] animate-pulse-slow transition-all transform hover:scale-105">
+                          Entrar na Reunião Agora 👇🏽
+                        </button>
+                      </a>
+                    </div>
+
+                    <p class="mt-8 text-blue-300/60 text-sm font-light italic">
+                      Em Espírito de Amor, Unidade & Serviço em NA!
+                    </p>
+                 </div>
+            </div>
+        </section>
+
+        <!-- Secao: O que e NA -->
+        <section id="info" class="page-section w-full px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl text-white font-bold mb-6 border-l-4 border-yellow-400 pl-4">O que é NA?</h2>
+                <div class="bg-slate-900/50 p-6 rounded-xl border border-blue-500/20 text-blue-50 space-y-4 leading-relaxed text-lg backdrop-blur-sm">
+                   <p>Narcóticos Anônimos é uma irmandade ou sociedade sem fins lucrativos, de homens e mulheres para quem as drogas se tornaram um problema maior.</p>
+                   <p>Somos adictos em recuperação que se reúnem regularmente para ajudar uns aos outros a se manterem limpos. Este é um programa de total abstinência de todas as drogas. Há somente um requisito para ser membro: <span class="text-yellow-400 font-bold">o desejo de parar de usar</span>.</p>
+                   <p>Sugerimos que você mantenha a mente aberta e dê a si mesmo uma oportunidade. Nosso programa é um conjunto de princípios escritos de maneira tão simples que podemos segui-los em nossa vida diária. O mais importante é que eles funcionam.</p>
+                </div>
+             </div>
+        </section>
+
+        <!-- Secao: Historia do grupo -->
+        <section id="history" class="page-section w-full px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl text-white font-bold mb-6 border-l-4 border-yellow-400 pl-4">História do Grupo</h2>
+                <div class="bg-slate-900/50 p-6 rounded-xl border border-blue-500/20 text-blue-50 space-y-4 leading-relaxed text-justify backdrop-blur-sm">
+                   <p>Em março de 2020, durante a pandemia de Covid-19, ocorreu um lockdown onde acarretou no fechamento temporário de vários grupos de NA.</p>
+                   <p>Nesse contexto, os membros do Grupo Nova Era de Arraial D'Ajuda passaram a se reunir em uma sala do Zoom, iniciando assim as reuniões online do grupo.</p>
+                   <p>Entretanto, após a liberação para reabertura do grupo presencial, as reuniões online ficaram relegadas a segundo plano, tendo uma diminuição drástica no número de participantes que priorizaram as reuniões presenciais.</p>
+                   <p>Desse modo, alguns membros que permaneceram reunindo-se online tentaram fazer com o que o grupo tivesse tanto reuniões presenciais, quanto online e híbridas, contudo devido a falta de interesse no formato online não houve êxito.</p>
+                   <p>Portanto os membros que permaneceram reunindo-se online decidiram formar um grupo autônomo, em 23 de abril de 2021.</p>
+                   <p>Desde então o grupo teve um aumento em sua frequência, número de membros, ingressos e também passou a ter mais reuniões.</p>
+                </div>
+             </div>
+        </section>
+
+        <!-- Secao: Relatorios -->
+        <section id="reports" class="page-section w-full px-4">
+            <div class="max-w-4xl mx-auto text-center pt-10">
+                <h2 class="text-3xl text-white font-bold mb-8 border-l-4 border-yellow-400 pl-4 inline-block">Relatórios de Serviço</h2>
+
+                <div class="bg-slate-900/50 p-10 rounded-xl border border-blue-500/20 text-blue-50 backdrop-blur-sm flex flex-col items-center">
+                   <div class="text-6xl mb-6">📊</div>
+                   <p class="text-xl text-blue-200 mb-8 max-w-2xl">
+                       Acompanhe com total transparência os relatórios de serviço, frequência e tesouraria do nosso grupo através do painel oficial.
+                   </p>
+
+                   <a href="https://lookerstudio.google.com/reporting/4429902c-3b9a-4e19-9c3f-dd126c3e5a12" target="_blank" rel="noopener noreferrer">
+                       <button class="bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-8 rounded-lg shadow-[0_0_20px_rgba(37,99,235,0.4)] transition-all transform hover:scale-105 flex items-center gap-2">
+                           <span>Acessar Relatórios (Looker Studio)</span>
+                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                             <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                           </svg>
+                       </button>
+                   </a>
+                   <p class="text-xs text-slate-500 mt-6 italic">Você será redirecionado para uma página segura do Google Looker Studio.</p>
+                </div>
+             </div>
+        </section>
+
     </main>
 
-    <footer>
-        <p>© 2021-2024 Grupo Nova Era OnLine de Narcóticos Anônimos</p>
+    <!-- Rodape -->
+    <footer class="bg-black/40 border-t border-white/5 py-8 mt-auto backdrop-blur-sm z-10">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-gray-500 text-sm mb-2">Grupo Nova Era OnLine de Narcóticos Anônimos</p>
+            <p class="text-gray-600 text-xs mt-4">
+               Todos os direitos reservados &copy; 2026
+            </p>
+        </div>
     </footer>
-</body>
+
+    <!-- Logica basica -->
+    <script>
+        function navigateTo(pageId) {
+            // Oculta todas as secoes
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Exibe a secao alvo
+            document.getElementById(pageId).classList.add('active');
+
+            // Atualiza o destaque da navegacao
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                if(btn.dataset.target === pageId) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            // Fecha o menu mobile se estiver aberto
+            document.getElementById('mobile-menu').classList.add('hidden');
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Inicializa a tela inicial
+        document.addEventListener('DOMContentLoaded', () => {
+            navigateTo('home');
+        });
+    </script>
+  </body>
 </html>
