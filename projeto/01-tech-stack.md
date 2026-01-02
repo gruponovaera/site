@@ -7,5 +7,10 @@
 - **Imagens:** `/img` para assets locais; uso atual de URLs externas (logo NA e background)
 - **Database:** MySQL 5.7+ (tabela `novaera_participantes`)
 - **Integracoes:** Webhook Zoom e relatorios no Looker Studio
+- **Seguranca:** 
+    - Inicialmente Auth Basic (.htaccess) para `participantes/`
+    - Evolucao planejada para Login PHP customizado
+- **Variaveis de Ambiente:** Uso de `env.example` como base; segredos fora do codigo
+- **Assets:** Padrao WebP para imagens e SVG para icones/logos
 - **Ambiente:** Servidor LAMP/LEMP (Apache ou Nginx + PHP)
 - **Codificacao:** UTF-8 em todos os arquivos do repositorio

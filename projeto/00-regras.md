@@ -147,6 +147,7 @@ Siga este fluxo ao iniciar qualquer tarefa:
 ```
 
 > **Atencao:** A linha em branco entre o titulo e o corpo e obrigatoria. Sempre referenciar a issue e o roadmap correspondente.
+> **Importante:** Nunca use `\n` literal em comandos de commit via CLI. Use arquivos de mensagem (`-F`) ou editores para garantir quebras de linha reais.
 
 ### Tipos de Commit
 
@@ -192,13 +193,18 @@ No ultimo commit antes do PR ou no corpo do PR, usar:
 
 ## 4. Formatacao de Mensagens (Git e GitHub)
 
-1. **Commits:** Escrever mensagens multi-linha reais, sem `\n` literal.
-2. **Issues/PRs:** Preferir arquivos de corpo para textos longos:
+1. **Commits:** Escrever mensagens multi-linha reais. **PROIBIDO** usar `\n` literal como divisor de linha em comandos `git commit -m`. Preferir:
+   ```bash
+   git commit -F caminho/para/mensagem.txt
+   ```
+   **Regra de Limpeza:** Arquivos temporarios usados para mensagens de commit, issues ou PRs devem ser excluidos imediatamente apos o uso e **nunca** devem ser commitados.
+2. **Issues/PRs:** **OBRIGATORIO** usar arquivos de corpo para evitar erros de escape:
    ```bash
    gh issue create --body-file corpo-issue.md
-   gh pr create --body-file corpo-pr.md
    ```
+   Apos a criacao, exclua o arquivo: `rm corpo-issue.md`.
 3. **Revisao visual:** Conferir a renderizacao no GitHub antes de finalizar.
+4. **Historico Limpo:** Evite commits de "correcao de commit". Use `git commit --amend` para manter um historico linear e limpo antes de finalizar o trabalho.
 
 ---
 

@@ -25,7 +25,7 @@
 
 ## Regras de dados
 - `email` pode ser nulo.
-- `join_time` e `start_time` devem seguir o mesmo timezone (definir padrao).
+- **Timezone:** Obrigatorio o uso de `America/Sao_Paulo` em todas as gravacoes e consultas.
 - Os valores vem do Zoom e sao gravados como `DATETIME`.
 
 ## Integracao com o sistema
